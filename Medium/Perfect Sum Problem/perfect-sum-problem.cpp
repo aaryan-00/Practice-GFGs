@@ -23,7 +23,7 @@ class Solution{
         }
 // 	if(i<0)
 // 	{
-// 	    return 0;
+// 	    return sum==0;
 // 	}
         if(dp[i][sum]!=-1)
         {
