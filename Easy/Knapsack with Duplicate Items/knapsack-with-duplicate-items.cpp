@@ -11,9 +11,13 @@ class Solution{
 public:
     int recur(int ind,int w,int val[],int wt[],vector<vector<int>> &dp)
     {
-        if(ind<0 || w==0)
+        // if(ind<0 || w==0)
+        // {
+        //     return 0;
+        // }
+        if(ind==0)
         {
-            return 0;
+            return w/wt[0] * val[0];
         }
         if(dp[ind][w]!=-1)
         {
