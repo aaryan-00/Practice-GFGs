@@ -21,6 +21,10 @@ class Solution{
             else
                 return 0;
         }
+// 	if(i<0)
+// 	{
+// 	    return 0;
+// 	}
         if(dp[i][sum]!=-1)
         {
             return dp[i][sum];
