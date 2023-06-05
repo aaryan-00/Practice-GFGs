@@ -12,10 +12,14 @@ class Solution{
   public:
     int recur(int ind,int curr,int price[],vector<vector<int>> &dp)
     {
-        if(ind<0 || curr==0)
+        if(ind==0)
         {
-            return 0;
+            return curr*price[0];
         }
+        // if(ind<0 || curr==0)
+        // {
+        //     return 0;
+        // }
         if(dp[ind][curr]!=-1)
         {
             return dp[ind][curr];
@@ -31,11 +35,6 @@ class Solution{
         return dp[ind][curr]=max(tkn,ntkn);
     }
     int cutRod(int price[], int n) {
-        // for(int i=0;i<n;i++)
-        // {
-        //     cout<<price[i]<<" ";
-        // }
-        // return -6;
         vector<vector<int>> dp(n,vector<int>(n+1,-1));
         return recur(n-1,n,price,dp);
     }
