@@ -25,12 +25,32 @@ public:
             int curr=memo(i,k,arr,dp)+memo(k+1,j,arr,dp)+arr[i-1]*arr[k]*arr[j];
             steps=min(steps,curr);
         }
-        dp[i][j]=steps;
+        return dp[i][j]=steps;
     }
     int matrixMultiplication(int n, int arr[])
     {
         vector<vector<int>> dp(n,vector<int>(n,-1));
-        return memo(1,n-1,arr,dp);
+        // return memo(1,n-1,arr,dp);
+        
+        //tabulation
+        for(int i=0;i<n;i++)
+        {
+            dp[i][i]=0;
+        }
+        for(int i=n-1;i>=0;i--)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                int steps=INT_MAX;
+                for(int k=i;k<=j-1;k++)
+                {
+                    int curr=memo(i,k,arr,dp)+memo(k+1,j,arr,dp)+arr[i-1]*arr[k]*arr[j];
+                    steps=min(steps,curr);
+                }
+                dp[i][j]=steps;
+            }
+        }
+        return dp[1][n-1];
     }
 };
 
