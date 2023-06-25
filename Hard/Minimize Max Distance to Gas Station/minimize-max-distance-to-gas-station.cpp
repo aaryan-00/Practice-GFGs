@@ -11,17 +11,29 @@ class Solution {
         for(int i=1;i<stations.size();i++)
         {
             int diff=stations[i]-stations[i-1];
-            double val=(double)diff/mid;
-            cnt+=(int)val;
+            cnt+=(int)diff/mid;
         }
         return cnt<=K;
     }
     double findSmallestMaxDist(vector<int> &stations, int K){
       double s=0,e=stations[stations.size()-1]-stations[0];
       double ans;
-      while(e-s>1e-6)
+    //   while(s<=e)
+    //   {
+    //       double mid=(s+e)/2;
+    //       if(isPossible(mid,stations,K))
+    //       {
+    //           ans=mid;
+    //           e=mid-1e-6;
+    //       }
+    //       else
+    //       {
+    //           s=mid+1e-6;
+    //       }
+    //   }
+    while(e-s>1e-6)
       {
-          double mid=s+(e-s)/2;
+          double mid=(s+e)/2;
           if(isPossible(mid,stations,K))
           {
               ans=mid;
