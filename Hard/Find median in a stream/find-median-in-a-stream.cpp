@@ -11,10 +11,17 @@ class Solution
     //Function to insert heap.
     priority_queue<int> maxheap;
     priority_queue<int,vector<int>,greater<int>> minheap;
+    
     void insertHeap(int &x)
     {
         if(maxheap.empty() || x<maxheap.top()) maxheap.push(x);
         else minheap.push(x);
+        balanceHeaps();
+    }
+    
+    //Function to balance heaps.
+    void balanceHeaps()
+    {
         if(maxheap.size()>minheap.size()+1)
         {
             minheap.push(maxheap.top());
@@ -25,21 +32,6 @@ class Solution
             maxheap.push(minheap.top());
             minheap.pop();
         }
-    }
-    
-    //Function to balance heaps.
-    void balanceHeaps()
-    {
-        // if(maxheap.size()>minheap.size()+1)
-        // {
-        //     minheap.push(maxheap.top());
-        //     maxheap.pop();
-        // }
-        // else if(maxheap.size()+1<minheap.size())
-        // {
-        //     maxheap.push(minheap.top());
-        //     minheap.pop();
-        // }
         
     }
     
