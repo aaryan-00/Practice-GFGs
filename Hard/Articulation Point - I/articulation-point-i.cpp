@@ -48,7 +48,7 @@ class Solution {
         {
             if(vis[i]==false)
             {
-                dfs(0,-1,timeIn,timeLow,adj);
+                dfs(i,-1,timeIn,timeLow,adj);
             }
         }
         vector<int> ans;
